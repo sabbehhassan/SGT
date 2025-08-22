@@ -14,7 +14,7 @@ const SkillsView = () => {
 
   return (
     <section className="bg-gray-50 py-20 px-6">
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="max-w-7xl mx-auto text-center">
         {/* Heading */}
         <h2 className="text-4xl font-bold text-gray-800 mb-6">
           Here are Numerous Topics That <br />{" "}
