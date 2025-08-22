@@ -1,28 +1,53 @@
 import React from "react";
+import {
+  FaCode,
+  FaBrain,
+  FaMobileAlt,
+  FaPaintBrush,
+  FaAmazon,
+  FaChartLine,
+  FaBook,
+  FaStore,
+} from "react-icons/fa";
 
 const SkillsView = () => {
   const skills = [
-    { name: "Web Development", icon: "code" },
-    { name: "AI & ML", icon: "android" },
-    { name: "App Development", icon: "phone_android" },
-    { name: "Graphic Design", icon: "brush" },
-    { name: "Amazon", icon: "shopping_cart" },
-    { name: "Trading", icon: "trending_up" },
-    { name: "Bookkeeping", icon: "book" },
-    { name: "WalMart", icon: "store" },
+    {
+      name: "Web Development",
+      icon: <FaCode className="text-6xl text-indigo-600" />,
+    },
+    { name: "AI & ML", icon: <FaBrain className="text-6xl text-purple-600" /> },
+    {
+      name: "App Development",
+      icon: <FaMobileAlt className="text-6xl text-blue-600" />,
+    },
+    {
+      name: "Graphic Design",
+      icon: <FaPaintBrush className="text-6xl text-pink-500" />,
+    },
+    { name: "Amazon", icon: <FaAmazon className="text-6xl text-orange-500" /> },
+    {
+      name: "Trading",
+      icon: <FaChartLine className="text-6xl text-green-600" />,
+    },
+    {
+      name: "Bookkeeping",
+      icon: <FaBook className="text-6xl text-yellow-500" />,
+    },
+    { name: "WalMart", icon: <FaStore className="text-6xl text-red-500" /> },
   ];
 
   return (
-    <section className="bg-gradient-to-b from-gray-50 to-white py-20 px-6">
+    <section className="bg-gradient-to-b from-indigo-100 to-white py-20 px-6">
       <div className="max-w-7xl mx-auto text-center">
         {/* Heading */}
-        <h2 className="text-4xl font-bold text-gray-800 mb-6">
-          Here are Numerous Topics That <br />
-          <span className="text-cyan-600">Will Enhance Your Skills</span>
+        <h2 className="text-4xl font-extrabold text-gray-800 mb-6">
+          Master <span className="text-indigo-600">Essential Skills</span>
         </h2>
         <p className="text-lg text-gray-600 mb-14 max-w-2xl mx-auto">
-          Explore a wide range of professional skill sets designed to boost your
-          career and help you stay ahead in the tech industry.
+          Unlock a world of opportunities by exploring topics tailored for your
+          growth. Each skill helps you stay ahead of the curve in today’s fast
+          evolving industry.
         </p>
 
         {/* Skills Grid */}
@@ -30,19 +55,27 @@ const SkillsView = () => {
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="bg-white h-72 w-64 rounded-2xl shadow-lg p-8 flex flex-col 
-                         justify-between items-center hover:shadow-2xl 
-                         hover:-translate-y-2 transform transition"
+              className="group bg-white h-80 w-64 rounded-2xl shadow-lg p-8 flex flex-col 
+                         justify-between items-center hover:shadow-2xl hover:-translate-y-2 
+                         transform transition relative overflow-hidden"
             >
-              <span className="material-icons text-cyan-500 text-7xl mb-3">
+              {/* Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-indigo-100 opacity-0 group-hover:opacity-100 transition rounded-2xl"></div>
+
+              {/* Icon */}
+              <div className="relative z-10 group-hover:scale-110 transition-transform duration-300">
                 {skill.icon}
-              </span>
-              <h3 className="text-xl font-semibold text-gray-800">
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-semibold text-gray-800 relative z-10">
                 {skill.name}
               </h3>
+
+              {/* Button */}
               <button
-                className="mt-4 bg-cyan-600 text-white px-6 py-2.5 rounded-lg 
-                           font-medium hover:bg-cyan-500 transition"
+                className="mt-6 bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2.5 rounded-xl 
+                           font-medium hover:from-red-500 hover:to-orange-500 transition relative z-10"
               >
                 Get Started
               </button>
