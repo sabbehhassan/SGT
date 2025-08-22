@@ -1,76 +1,86 @@
-import ceoImage from "../../assets/team/ceo.jpg";
-import member1Image from "../../assets/team/member1.jpg";
-import member2Image from "../../assets/team/member2.jpg";
+import React from "react";
 
-export default function About() {
-  const team = [
-    { name: "Flora Nyra", position: "Product Manager", image: member1Image },
-    { name: "Evander Mac", position: "Art Director", image: member1Image },
-    {
-      name: "Taytum Elia",
-      position: "Investment Planner",
-      image: member1Image,
-    },
-    { name: "Wylder Elio", position: "Financial Analyst", image: member2Image },
-    { name: "Sophia Lee", position: "UI/UX Designer", image: member2Image },
-    {
-      name: "Liam Johnson",
-      position: "Software Developer",
-      image: member2Image,
-    },
-    {
-      name: "Olivia Brown",
-      position: "Quality Assurance",
-      image: member2Image,
-    },
-  ];
+const teamMembers = [
+  { name: "John Doe", role: "CEO", img: "https://i.pravatar.cc/150?img=1" },
+  { name: "Jane Smith", role: "CTO", img: "https://i.pravatar.cc/150?img=2" },
+  { name: "Mark Wilson", role: "CFO", img: "https://i.pravatar.cc/150?img=3" },
+  {
+    name: "Sophia Lee",
+    role: "Designer",
+    img: "https://i.pravatar.cc/150?img=4",
+  },
+  {
+    name: "David Kim",
+    role: "Developer",
+    img: "https://i.pravatar.cc/150?img=5",
+  },
+  {
+    name: "Emily Davis",
+    role: "Marketing",
+    img: "https://i.pravatar.cc/150?img=6",
+  },
+];
 
+const About = () => {
   return (
-    <section className="bg-gray-50 py-20 px-6">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="bg-gradient-to-b from-indigo-50 to-indigo-100 py-16">
+      <div className="max-w-7xl mx-auto px-6 text-center">
         {/* Heading */}
-        <h2 className="text-4xl font-bold text-gray-800 mb-6">
-          Meet Our <span className="text-cyan-600">Team</span>
+        <h2 className="text-4xl font-extrabold text-gray-800 mb-12">
+          Meet Our Team
         </h2>
-        <p className="text-lg text-gray-600 mb-16 max-w-2xl mx-auto">
-          Our diverse team of professionals brings innovation, creativity, and
-          technical expertise together to deliver outstanding software
-          solutions.
-        </p>
 
-        {/* CEO Spotlight */}
-        <div className="mb-20">
-          <div className="w-60 mx-auto bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl transition">
+        {/* CEO */}
+        <div className="flex justify-center mb-12">
+          <div className="bg-white shadow-lg rounded-2xl p-6 w-64 hover:scale-105 transition-transform">
             <img
-              src={ceoImage}
-              alt="CEO"
-              className="w-full rounded-xl mb-4 object-cover"
+              src={teamMembers[0].img}
+              alt={teamMembers[0].name}
+              className="w-28 h-28 mx-auto rounded-full mb-4 object-cover"
             />
-            <h3 className="text-xl font-semibold text-gray-800">John Doe</h3>
-            <p className="text-cyan-600 font-medium">CEO</p>
+            <h3 className="text-xl font-bold">{teamMembers[0].name}</h3>
+            <p className="text-indigo-600">{teamMembers[0].role}</p>
           </div>
         </div>
 
-        {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-          {team.map((member) => (
+        {/* 2 Members Row (Narrower) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center mb-12 max-w-3xl mx-auto">
+          {teamMembers.slice(1, 3).map((member, index) => (
             <div
-              key={member.name}
-              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg hover:-translate-y-2 transform transition text-center"
+              key={index}
+              className="bg-white shadow-lg rounded-2xl p-6 w-64 mx-auto hover:scale-105 transition-transform"
             >
               <img
-                src={member.image}
+                src={member.img}
                 alt={member.name}
-                className="w-32 h-32 mx-auto rounded-full object-cover mb-4 border-4 border-cyan-500"
+                className="w-24 h-24 mx-auto rounded-full mb-4 object-cover"
               />
-              <h3 className="text-lg font-semibold text-gray-800">
-                {member.name}
-              </h3>
-              <p className="text-gray-500">{member.position}</p>
+              <h3 className="text-lg font-semibold">{member.name}</h3>
+              <p className="text-indigo-600">{member.role}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* 3 Members Row */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-center max-w-5xl mx-auto">
+          {teamMembers.slice(3).map((member, index) => (
+            <div
+              key={index}
+              className="bg-white shadow-lg rounded-2xl p-6 w-64 mx-auto hover:scale-105 transition-transform"
+            >
+              <img
+                src={member.img}
+                alt={member.name}
+                className="w-24 h-24 mx-auto rounded-full mb-4 object-cover"
+              />
+              <h3 className="text-lg font-semibold">{member.name}</h3>
+              <p className="text-indigo-600">{member.role}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default About;
