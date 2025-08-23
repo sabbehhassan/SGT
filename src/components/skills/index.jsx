@@ -50,35 +50,18 @@ const SkillsView = () => {
           evolving industry.
         </p>
 
-        {/* Skills Grid */}
-        <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {/* Desktop Grid */}
+        <div className="hidden lg:grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="group bg-white h-80 w-64 rounded-2xl shadow-lg p-8 flex flex-col 
-                         justify-between items-center hover:shadow-2xl hover:-translate-y-2 
-                         transform transition relative overflow-hidden"
-            >
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-indigo-100 opacity-0 group-hover:opacity-100 transition rounded-2xl"></div>
+            <SkillCard key={index} skill={skill} />
+          ))}
+        </div>
 
-              {/* Icon */}
-              <div className="relative z-10 group-hover:scale-110 transition-transform duration-300">
-                {skill.icon}
-              </div>
-
-              {/* Title */}
-              <h3 className="text-xl font-semibold text-gray-800 relative z-10">
-                {skill.name}
-              </h3>
-
-              {/* Button */}
-              <button
-                className="mt-6 bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2.5 rounded-xl 
-                           font-medium hover:from-red-500 hover:to-orange-500 transition relative z-10"
-              >
-                Get Started
-              </button>
+        {/* Mobile Carousel */}
+        <div className="lg:hidden mt-10 overflow-x-auto scroll-smooth snap-x snap-mandatory flex gap-5 px-5 hide-scrollbar">
+          {skills.map((skill, index) => (
+            <div key={index} className="flex-shrink-0 snap-center">
+              <SkillCard skill={skill} mobile />
             </div>
           ))}
         </div>
@@ -86,5 +69,37 @@ const SkillsView = () => {
     </section>
   );
 };
+
+const SkillCard = ({ skill, mobile }) => (
+  <div
+    className={`
+      group bg-white h-80 ${mobile ? "w-72 sm:w-80" : "w-64"} 
+      rounded-2xl shadow-sm hover:shadow-lg p-8 flex flex-col justify-between items-center 
+      hover:-translate-y-1 transform transition relative overflow-hidden
+    `}
+  >
+    {/* Glow Effect */}
+    <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-indigo-100 opacity-0 group-hover:opacity-100 transition rounded-2xl"></div>
+
+    {/* Icon */}
+    <div className="relative z-10 group-hover:scale-110 transition-transform duration-300">
+      {skill.icon}
+    </div>
+
+    {/* Title */}
+    <h3 className="text-xl font-semibold text-gray-800 relative z-10">
+      {skill.name}
+    </h3>
+
+    {/* Button */}
+    <button
+      className="mt-6 bg-gradient-to-r from-orange-500 to-red-500 text-white 
+                 px-6 py-2.5 rounded-xl font-medium hover:from-red-500 hover:to-orange-500 
+                 transition relative z-10"
+    >
+      Get Started
+    </button>
+  </div>
+);
 
 export default SkillsView;
