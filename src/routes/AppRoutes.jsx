@@ -4,6 +4,7 @@ import HomePage from "../pages/Home";
 import About from "../components/about";
 import Services from "../pages/Services";
 import Contact from "../pages/ContactUs";
+import Progress from "../components/progress";
 
 const AppRoutes = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const AppRoutes = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "services", element: <Services /> },
       { path: "Contact", element: <Contact /> },
+      { path: "Progress", element: <Progress /> },
     ],
   },
 ]);
