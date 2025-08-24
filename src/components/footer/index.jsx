@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-r from-[#0f172a] via-[#0b3d91] to-[#0f766e] text-white px-6 py-12 w-full">
@@ -18,36 +20,36 @@ export default function Footer() {
           <h4 className="mb-4 text-xl font-bold">Quick Links</h4>
           <ul className="space-y-3">
             <li>
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="hover:text-cyan-300 transition-colors duration-300"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#about"
+              <Link
+                to="/about"
                 className="hover:text-cyan-300 transition-colors duration-300"
               >
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#services"
+              <Link
+                to="/services"
                 className="hover:text-cyan-300 transition-colors duration-300"
               >
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="hover:text-cyan-300 transition-colors duration-300"
               >
                 Contact Us
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -57,10 +59,18 @@ export default function Footer() {
           <h4 className="mb-4 text-xl font-bold">Follow Us</h4>
           <div className="flex justify-center md:justify-start gap-5 text-2xl flex-wrap">
             {[
-              { icon: "facebook-f", url: "https://www.facebook.com" },
-              { icon: "twitter", url: "https://www.twitter.com" },
-              { icon: "linkedin-in", url: "https://www.linkedin.com" },
-              { icon: "github", url: "https://github.com" },
+              {
+                icon: "facebook-f",
+                url: "https://www.facebook.com/siliconglobaltech",
+              },
+              {
+                icon: "twitter",
+                url: "https://www.twitter.com/siliconglobaltech",
+              },
+              {
+                icon: "linkedin-in",
+                url: "https://www.linkedin.com/in/siliconglobaltech",
+              },
             ].map((social) => (
               <a
                 key={social.icon}
